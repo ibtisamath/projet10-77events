@@ -19,6 +19,16 @@ export const api = {
 export const DataProvider = ({ children }) => {
   const [error, setError] = useState(null);
   const [data, setData] = useState(null);
+  // Ajouter pour stocker l'événement le plus récent en fonction de la date
+  const [last, setLast] = useState(null);
+  useEffect(() => {
+    if (data && data.events) {
+      // Trie les événements par date dans l'ordre décroissant
+      const footerSortedEvents = data.events.sort((a, b) => new Date(b.date) - new Date(a.date));
+      // Défini l'événement le plus récent
+      setLast(footerSortedEvents[0]);
+    }
+  }, [data]);
   const getData = useCallback(async () => {
     try {
       setData(await api.loadData());
@@ -37,6 +47,7 @@ export const DataProvider = ({ children }) => {
       value={{
         data,
         error,
+        last,
       }}
     >
       {children}
