@@ -24,9 +24,9 @@ export const DataProvider = ({ children }) => {
   useEffect(() => {
     if (data && data.events) {
       // Trie les événements par date dans l'ordre décroissant
-      const footerSortedEvents = data.events.sort((a, b) => new Date(b.date) - new Date(a.date));
+      const SortedEvents = data.events.sort((a, b) => new Date(b.date) - new Date(a.date));
       // Défini l'événement le plus récent
-      setLast(footerSortedEvents[0]);
+      setLast(SortedEvents[0]);
     }
   }, [data]);
   const getData = useCallback(async () => {
@@ -47,7 +47,7 @@ export const DataProvider = ({ children }) => {
       value={{
         data,
         error,
-        last,
+        last
       }}
     >
       {children}
