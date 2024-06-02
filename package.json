@@ -1,6 +1,7 @@
 {
   "name": "724-events",
   "version": "0.1.0",
+  "homepage": "https://ibtisamath.github.io/projet10-77events",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
@@ -16,6 +17,8 @@
     "yarn": "^1.22.22"
   },
   "scripts": {
+    "predeploy": "npm run build",
+   "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -48,6 +51,7 @@
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-react-hooks": "^4.5.0",
+    "gh-pages": "^6.1.1",
     "prettier": "^2.6.2"
   }
 }
